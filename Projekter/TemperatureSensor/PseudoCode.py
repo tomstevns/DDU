@@ -33,9 +33,10 @@ def Terminate():
 #Pseudo code
 callable(Initialize())
 def Main():
-    callable(ReadSensor())
-    callable(DataAcquisition())
-    callable(Alert())
-    callable(Display())
-    callable(Delay())
+    while True:
+        callable(ReadSensor())
+        callable(DataAcquisition())
+        callable(Alert())
+        callable(Display())
+        callable(Delay())
 
