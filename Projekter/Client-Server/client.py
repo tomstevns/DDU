@@ -1,10 +1,10 @@
 import socket
-
+import time
 HEADER = 64
-PORT = 5050
+PORT = 5052
 FORMAT = 'utf-8'
 DISCONNECT_MESSAGE = "!DISCONNECT"
-SERVER = "192.168.1.26"
+SERVER = "192.168.0.101"
 ADDR = (SERVER, PORT)
 
 client = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -19,12 +19,23 @@ def send(msg):
     client.send(message)
     print(client.recv(2048).decode(FORMAT))
 
-send("Hello World!")
-input()
-send("Hello Everyone!")
-input()
-send("Hello Tim!")
+def firstMessage():
+    send("Hello World!")
+    time.sleep(5)
 
-send(DISCONNECT_MESSAGE)
+def secondMessage():
+    send("second message!")
+    time.sleep(5)
+
+def terminatingMessage():
+    send("Good bye - That's all folks!")
+    time.sleep(5)
+    send(DISCONNECT_MESSAGE)
+
+firstMessage()
+secondMessage()
+terminatingMessage()
+
+
 
 
